@@ -50,7 +50,7 @@
 
 #### 폴더 구조
 
-![화면 캡처 2022-01-13 191326](C:\Users\multicampus\Desktop\화면 캡처 2022-01-13 191326.png)
+![화면 캡처 2022-01-13 191326](C:\Users\multicampus\Desktop\mypjt\pjt01\S06P11C103\README_jjc\화면 캡처 2022-01-13 191326.png)
 
 
 
@@ -91,7 +91,7 @@
 
 #### 학습방법
 
-![화면 캡처 2022-01-13 224350](C:\Users\multicampus\Desktop\화면 캡처 2022-01-13 224350.png)
+![화면 캡처 2022-01-13 224350](C:\Users\multicampus\Desktop\mypjt\pjt01\S06P11C103\README_jjc\화면 캡처 2022-01-13 224350.png)
 
 
 
