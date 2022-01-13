@@ -246,6 +246,12 @@ public class UserReq {
 > API를 활용할 떄 가이드에 나와있는 요청변수나 출력결과 변수에 대해 오타가 날 확률이 상당히 높으므로 복사 붙여넣기를 사용하는 것이 좋겠다.
 네이버 소셜로그인 시 spring security를 사용하거나 api정보를 갱신할 때 spring batch를 사용해보는 것을 목표로 공통프로젝트를 진행해 보겠습니다.
 
+#### 오류
+2022-01-14 00:19:05.346  INFO 53040 --- [nio-8080-exec-2] o.apache.coyote.http11.Http11Processor   : Error parsing HTTP request header
+ Note: further occurrences of HTTP request parsing errors will be logged at DEBUG level.
+
+ => https를 http로 변경해주면 해결
+
 //브랜치 변경
 git checkout branch명 
 
