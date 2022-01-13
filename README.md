@@ -1,6 +1,12 @@
 # 개발환경 설정(2022-01-10 ~ 2022-01-11)
 ### 인텔리제이 사용 (backend + frontend)
 ![개발환경 프로젝트 구조](https://lab.ssafy.com/s06-webmobile2-sub1/S06P11C103/-/raw/develop_seongwon/img/%EC%BA%A1%EC%B2%986.PNG)
+### 실행화면 (메인화면)
+![메인화면](https://lab.ssafy.com/s06-webmobile2-sub1/S06P11C103/-/raw/develop_seongwon/img/%EC%BA%A1%EC%B2%987.PNG)
+### 실행화면 (방 상세화면)
+![방 상세화면](https://lab.ssafy.com/s06-webmobile2-sub1/S06P11C103/-/raw/develop_seongwon/img/%EC%BA%A1%EC%B2%988.PNG)
+### 실행화면 (로그인 - 토큰 생성)
+![로그인 - 토큰 생성](https://lab.ssafy.com/s06-webmobile2-sub1/S06P11C103/-/raw/develop_seongwon/img/%EC%BA%A1%EC%B2%989.PNG)
 
 # React Basic Course Study Plan
 ![React](https://lab.ssafy.com/s06-webmobile1-sub1/S06P11C108/-/raw/swchae516/img/react-logo.png)
