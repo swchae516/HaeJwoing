@@ -8,21 +8,21 @@
 
     - intellij 개발환경 설정
 
-      ![gradle](.\assets\gradle.png)
+      ![gradle](\assets\gradle.png)
 
     - 통합 개발환경 설정
 
-      ![4](.\assets\4.png)
+      ![4](\assets\4.png)
 
-      ![5](.\assets\5.png)
+      ![5](\assets\5.png)
 
-      ![6](C:\Users\multicampus\Desktop\새 폴더\assets\6.png)
+      ![6](\assets\6.png)
 
       - router를 이용한 signup 페이지 & login 모달
 
-        ![signup_router](.\assets\signup_router.png)
+        ![signup_router](\assets\signup_router.png)
 
-        ![login_modal](.\assets\login_modal.png)
+        ![login_modal](\assets\login_modal.png)
 
 
 
@@ -34,15 +34,15 @@
 
     - 파일 directory
 
-      ![directory](.\assets\directory.png)
+      ![directory](\assets\directory.png)
 
     - 메인페이지
 
-      ![main_page1](.\assets\main_page1.png)
+      ![main_page1](\assets\main_page1.png)
 
       
 
-      ![main_page2](.\assets\main_page2.png)
+      ![main_page2](\assets\main_page2.png)
 
       
 
@@ -50,19 +50,19 @@
 
     - 검색
 
-      ![search](.\assets\search.png)
+      ![search](\assets\search.png)
 
     - 로그인 및 회원가입
 
-      ![login](.\assets\login.png)
+      ![login](\assets\login.png)
 
       
 
-      ![signup](.\assets\signup.png)
+      ![signup](\assets\signup.png)
 
       
 
     - 상세페이지
 
-      ![detail](.\assets\detail.png)
+      ![detail](\assets\detail.png)
 
