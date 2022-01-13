@@ -64,5 +64,5 @@
 
     - 상세페이지
 
-      ![detail](\assets\detail.png)
+      ![detail](/assets/detail.png)
 
