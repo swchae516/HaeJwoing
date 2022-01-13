@@ -233,7 +233,7 @@ public class UserReq {
 <img src="https://images.velog.io/images/jjeom122/post/1503fd2e-cb68-45c1-8402-8c216f6f3837/notLogin.PNG" width="600" height="400"/>
 
 
-### 로그인창을 누르면 네이버 로그인 페이지가 뜬다.
+### 로그인창을 누르면 네이버 로그인 페이지가 뜬다. 하지만 토큰이나 db문제인가? 로그인이 완료되지 않아 일반적인 아이디와 비밀번호로 로그인진행 -> 주말동안 해결해볼 예정.
 
 <img src="https://images.velog.io/images/jjeom122/post/bc557c78-9eb0-4a59-9163-48e48bc680ff/clickLogin.PNG" width="600" height="400"/>
 
