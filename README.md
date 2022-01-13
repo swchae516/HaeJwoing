@@ -1,6 +1,146 @@
 > swagger란 개발한 REST API를 문서화 해주고, 이를 통해 관리 및 사용자가 편리하게 API를 호출해보고 테스트할 수 있는 기능이 있다.
 
-spring boot에서는 springfox-boot-starter를 dependencies에 추가함으로 사용할 수 있다.
+#### spring boot에서는 springfox-boot-starter를 dependencies에 추가함으로 사용할 수 있다.
+
+#### Lombok
+> Java 라이브러리로 반복되는 getter, setter, toString 등의 메서드 작성 코드를 줄여주는 코드 다이어트 라이브러리입니다.
+
+lombok사용시 많은 getter와 setter를 줄여줘서 코드 가독성이 좋아지는 것 같다.
+
+@Data Annotation을 사용하면 된다.
+
+#### 1. lombok 미사용 시
+```
+package com.example.food.restaurant.dto;
+
+import java.time.LocalDateTime;
+
+public class WishListDto {
+
+    private Integer index;
+    private String title;
+    private String category;
+    private String address;
+    private String roadAddress;
+    private String link;
+    private String imgLink;
+    private boolean isVisited;
+    private int visitCount;
+    private LocalDateTime lastVisitTime;
+
+
+    public Integer getIndex() {
+        return index;
+    }
+
+    public void setIndex(Integer index) {
+        this.index = index;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getRoadAddress() {
+        return roadAddress;
+    }
+
+    public void setRoadAddress(String roadAddress) {
+        this.roadAddress = roadAddress;
+    }
+
+    public String getLink() {
+        return link;
+    }
+
+    public void setLink(String link) {
+        this.link = link;
+    }
+
+    public String getImgLink() {
+        return imgLink;
+    }
+
+    public void setImgLink(String imgLink) {
+        this.imgLink = imgLink;
+    }
+
+    public boolean isVisited() {
+        return isVisited;
+    }
+
+    public void setVisited(boolean visited) {
+        isVisited = visited;
+    }
+
+    public int getVisitCount() {
+        return visitCount;
+    }
+
+    public void setVisitCount(int visitCount) {
+        this.visitCount = visitCount;
+    }
+
+    public LocalDateTime getLastVisitTime() {
+        return lastVisitTime;
+    }
+
+    public void setLastVisitTime(LocalDateTime lastVisitTime) {
+        this.lastVisitTime = lastVisitTime;
+    }
+}
+
+```
+
+
+#### 2. lombok 사용시
+```
+package com.example.food.restaurant.dto;
+
+import lombok.Data;
+
+import java.time.LocalDateTime;
+
+@Data
+public class WishListDto {
+
+    private Integer index;
+    private String title;
+    private String category;
+    private String address;
+    private String roadAddress;
+    private String link;
+    private String imgLink;
+    private boolean isVisited;
+    private int visitCount;
+    private LocalDateTime lastVisitTime;
+
+
+}
+```
+
+
+
 
 ### swagger Annotation
 1. @API		클래스를 스웨거의 리소스로 표시
