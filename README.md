@@ -206,7 +206,7 @@ public class UserReq {
 }
 ```
 
-## Naver Api를 활용해 맛집리스트를 만들어보자
+## Naver Api를 활용해 나만의 리스트 만들기
 > Vue, bootstrap, JS, CSS spring
 
 
