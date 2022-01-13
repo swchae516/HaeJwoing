@@ -1,4 +1,4 @@
-## 개발환경 설정(2022-01-10 ~ 2022-01-11)
+# 개발환경 설정(2022-01-10 ~ 2022-01-11)
 
 # React Basic Course Study Plan
 ![React](https://lab.ssafy.com/s06-webmobile1-sub1/S06P11C108/-/raw/swchae516/img/react-logo.png)
