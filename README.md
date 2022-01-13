@@ -59,5 +59,4 @@
   입니다. 
   이 프로젝트를 통해 리액트 컴포넌트에 대한 개념을 이해했으며, JSX 문법과 Props와 State의 개념과 차이에 대해서 이해할 수 있었습니다.
   특히, 클래스형 컴포넌트와 함수형 컴포넌트를 이해하기 위해서 2개의 프로젝트(class, function)로 진행했습니다.
-  
-![Habit Tracker](https://lab.ssafy.com/s06-webmobile1-sub1/S06P11C108/-/raw/swchae516/img/%EC%BA%A1%EC%B2%985.PNG)<br>
+  ![Habit Tracker](https://lab.ssafy.com/s06-webmobile1-sub1/S06P11C108/-/raw/swchae516/img/%EC%BA%A1%EC%B2%985.PNG)<br>
