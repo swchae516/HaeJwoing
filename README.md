@@ -1,37 +1,119 @@
-# Sub-PJt1(22/01/03~22/01/14)
+> swagger란 개발한 REST API를 문서화 해주고, 이를 통해 관리 및 사용자가 편리하게 API를 호출해보고 테스트할 수 있는 기능이 있다.
 
-## 광주 1반 3팀 워라벨팀(C103)
+spring boot에서는 springfox-boot-starter를 dependencies에 추가함으로 사용할 수 있다.
 
-### 프로젝트 주제
-
-- [해줘잉](https://www.notion.so/a77c5dd7219144b88b7a64f43b3a7d18)
-
-
-
-### 팀원 및 역할
-
-#### Front 
-
-> 기술 스택
->
-> > React, node.js
-
-- 채성원([branch](https://lab.ssafy.com/s06-webmobile2-sub1/S06P11C103/-/tree/develop_seongwon))
-
-- 허영민([branch](https://lab.ssafy.com/s06-webmobile2-sub1/S06P11C103/-/tree/develop_youngmin))
-
-- 정정채([branch](https://lab.ssafy.com/s06-webmobile2-sub1/S06P11C103/-/tree/develope_jjc))
+### swagger Annotation
+1. @API		클래스를 스웨거의 리소스로 표시
+2. @ApiOperation 특정 경로의 오퍼레이션 HTTP method 설명
+3. @ApiParam 오퍼레이션 파라미터에 메타 데이터 설명
+4. @ApiResponse 오퍼레이션의 응답 지정
+5. @ApiModelProperty 모델의 속성 데이터 설명
+6. @ApiImplicitParam 메소드 단위의 오퍼레이션 파라미터를 설명
 
 
+#### spring Initializr를 통해 프로젝트 생성
+<img src="https://images.velog.io/images/jjeom122/post/38adf161-0fd1-401d-aa2e-ef0965e03cf8/basci_api_swagger.PNG" width="600" height="400"/>
 
-#### Back 
 
-> 기술 스택
->
-> > Spring boot, docker
+### controller
 
-- 정재현([branch](#))
+```
+package Swagger.ApiController.controller;
 
-- 한윤희([branch](https://lab.ssafy.com/s06-webmobile2-sub1/S06P11C103/-/tree/develop_yoonhee))
-- 이은성([branch](https://lab.ssafy.com/s06-webmobile2-sub1/S06P11C103/-/tree/develop_eunseong))
+import Swagger.dto.UserReq;
+import Swagger.dto.UserRes;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
+import io.swagger.annotations.ApiResponse;
+import org.springframework.web.bind.annotation.*;
+
+@Api(tags = {"API 정보 제공하는 Controller"})
+@RestController
+@RequestMapping("/api")
+public class ApiController {
+
+    @ApiOperation(value = "사용자의 이름과 나이를 반환하는 method")
+    @GetMapping("/user")
+    public UserRes user(UserReq userReq){
+        return new UserRes(userReq.getName(), userReq.getAge());
+    }
+
+    @PostMapping("/user")
+    public UserRes userPost(@RequestBody UserReq req){
+        return new UserRes(req.getName(), req.getAge());
+    }
+}
+```
+### dto
+```
+package Swagger.dto;
+
+import io.swagger.annotations.ApiModelProperty;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@AllArgsConstructor
+@NoArgsConstructor
+@Data
+public class UserReq {
+    @ApiModelProperty(value = "사용자 이름", example = "jeong", required = true)
+    private String name;
+
+    @ApiModelProperty(value = "사용자 나이", example = "13", required = true)
+    private int age;
+}
+```
+
+## Naver Api를 활용해 맛집리스트를 만들어보자
+> Vue, bootstrap, JS, CSS spring
+
+
+네이버 검색 API 장소와 이미지 검색을 활용했다.
+1. 요청에 대한 swaggerApi를 설계
+2. 장소와 이미지 API에 따른 요청과 응답 dto를 만들고 naverClient를 연결.
+3. 응답에 대한 정보를 담기위해 각각의 dto를 만들어준다.
+
+<img src="https://images.velog.io/images/jjeom122/post/44a2be09-2d1a-40ea-83a9-2864fa3bc861/api.PNG" width="600" height="400"/>
+
+
+
+
+### 네이버 소셜 로그인 구현
+
+1. 기본 로그인 페이지
+2. 콜백 페이지 필요
+
+1,2 관련 소스들은 네이버 개발자 페이지에서 제공해준다.
+
+> 콜백 페이지관련해서 callback url이 제공되야하는데 네이버 개발자 페이지에 등록된 callback url을 사용해야된다.
+
+### 메인페이지에서
+<img src="https://images.velog.io/images/jjeom122/post/1503fd2e-cb68-45c1-8402-8c216f6f3837/notLogin.PNG" width="600" height="400"/>
+
+
+### 로그인창을 누르면 네이버 로그인 페이지가 뜬다.
+
+<img src="https://images.velog.io/images/jjeom122/post/bc557c78-9eb0-4a59-9163-48e48bc680ff/clickLogin.PNG" width="600" height="400"/>
+
+
+### 로그인시 comment(카페/블로그 리뷰 개수 순)으로 검색된 아이템을 위시리스트에 추가할 수 있다.
+
+<img src="https://images.velog.io/images/jjeom122/post/10994dd4-cf35-4749-9e3d-be211ac130ac/localhost_8080_page_main%20(1).png" width="600" height="800"/>
+
+
+> API를 활용할 떄 가이드에 나와있는 요청변수나 출력결과 변수에 대해 오타가 날 확률이 상당히 높으므로 복사 붙여넣기를 사용하는 것이 좋겠다.
+네이버 소셜로그인 시 spring security를 사용하거나 api정보를 갱신할 때 spring batch를 사용해보는 것을 목표로 공통프로젝트를 진행해 보겠습니다.
+
+//브랜치 변경
+git checkout branch명 
+
+//원격 저장소 추가 
+git remote add -t tami upstream URI
+
+//branch 확인 
+git remote -v
+
+
 
