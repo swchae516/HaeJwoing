@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import styles from './newProfile.module.css';
 import { BsPersonCircle } from 'react-icons/bs';
 import {
+  Button,
   ButtonGroup,
   Dropdown,
   Form,
@@ -39,100 +40,104 @@ const NewProfile = props => {
     'December',
   ];
   return (
-    <section className={styles.section}>
-      <div className={styles.body}>
-        <h1 className={styles.h1}>추가정보</h1>
-        <BsPersonCircle className={styles.icon} />
-        <div className={styles.data}>
-          <InputGroup className="mb-3">
-            <FormControl
-              aria-label="Default"
-              aria-describedby="inputGroup-sizing-default"
-              placeholder="닉네임"
+    <>
+      <section className={styles.section}>
+        <div className={styles.body}>
+          <h1 className={styles.h1}>추가정보</h1>
+          <BsPersonCircle className={styles.icon} />
+          <div className={styles.data}>
+            <InputGroup className={styles.inputGroup}>
+              <FormControl
+                aria-label="Default"
+                aria-describedby="inputGroup-sizing-default"
+                placeholder="3팀 화이팅(닉네임)"
+              />
+            </InputGroup>
+            <ButtonGroup className={styles.buttonGroup}>
+              {radios.map((radio, idx) => (
+                <ToggleButton
+                  key={idx}
+                  id={`radio-${idx}`}
+                  type="radio"
+                  variant={idx % 2 ? 'outline-danger' : 'outline-success'}
+                  name="radio"
+                  value={radio.value}
+                  checked={radioValue === radio.value}
+                  onChange={e => setRadioValue(e.currentTarget.value)}
+                >
+                  {radio.name}
+                </ToggleButton>
+              ))}
+            </ButtonGroup>
+            <ReactDatePicker
+              className={styles.datePicker}
+              renderCustomHeader={({
+                date,
+                changeYear,
+                changeMonth,
+                decreaseMonth,
+                increaseMonth,
+                prevMonthButtonDisabled,
+                nextMonthButtonDisabled,
+              }) => (
+                <div
+                  style={{
+                    margin: 10,
+                    display: 'flex',
+                    justifyContent: 'center',
+                  }}
+                >
+                  <button
+                    onClick={decreaseMonth}
+                    disabled={prevMonthButtonDisabled}
+                  >
+                    {'<'}
+                  </button>
+                  <select
+                    value={getYear(date)}
+                    onChange={({ target: { value } }) => changeYear(value)}
+                  >
+                    {years.map(option => (
+                      <option key={option} value={option}>
+                        {option}
+                      </option>
+                    ))}
+                  </select>
+
+                  <select
+                    value={months[getMonth(date)]}
+                    onChange={({ target: { value } }) =>
+                      changeMonth(months.indexOf(value))
+                    }
+                  >
+                    {months.map(option => (
+                      <option key={option} value={option}>
+                        {option}
+                      </option>
+                    ))}
+                  </select>
+
+                  <button
+                    onClick={increaseMonth}
+                    disabled={nextMonthButtonDisabled}
+                  >
+                    {'>'}
+                  </button>
+                </div>
+              )}
+              selected={startDate}
+              onChange={date => setStartDate(date)}
+              withPortal
+              locale={ko}
+              dateFormat="yyyy-MM-dd"
             />
-          </InputGroup>
-          <ButtonGroup className={styles.buttonGroup}>
-            {radios.map((radio, idx) => (
-              <ToggleButton
-                className={styles.button}
-                key={idx}
-                id={`radio-${idx}`}
-                type="radio"
-                variant={idx % 2 ? 'outline-danger' : 'outline-success'}
-                name="radio"
-                value={radio.value}
-                checked={radioValue === radio.value}
-                onChange={e => setRadioValue(e.currentTarget.value)}
-              >
-                {radio.name}
-              </ToggleButton>
-            ))}
-          </ButtonGroup>
-          <ReactDatePicker
-            className={styles.datePicker}
-            renderCustomHeader={({
-              date,
-              changeYear,
-              changeMonth,
-              decreaseMonth,
-              increaseMonth,
-              prevMonthButtonDisabled,
-              nextMonthButtonDisabled,
-            }) => (
-              <div
-                style={{
-                  margin: 10,
-                  display: 'flex',
-                  justifyContent: 'center',
-                }}
-              >
-                <button
-                  onClick={decreaseMonth}
-                  disabled={prevMonthButtonDisabled}
-                >
-                  {'<'}
-                </button>
-                <select
-                  value={getYear(date)}
-                  onChange={({ target: { value } }) => changeYear(value)}
-                >
-                  {years.map(option => (
-                    <option key={option} value={option}>
-                      {option}
-                    </option>
-                  ))}
-                </select>
-
-                <select
-                  value={months[getMonth(date)]}
-                  onChange={({ target: { value } }) =>
-                    changeMonth(months.indexOf(value))
-                  }
-                >
-                  {months.map(option => (
-                    <option key={option} value={option}>
-                      {option}
-                    </option>
-                  ))}
-                </select>
-
-                <button
-                  onClick={increaseMonth}
-                  disabled={nextMonthButtonDisabled}
-                >
-                  {'>'}
-                </button>
-              </div>
-            )}
-            selected={startDate}
-            onChange={date => setStartDate(date)}
-            withPortal
-            locale={ko}
-            dateFormat="yyyy.MM.dd"
-          />
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+      <Button className={styles.button} variant="secondary">
+        완료
+      </Button>
+    </>
   );
 };
 
