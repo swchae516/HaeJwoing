@@ -4,6 +4,7 @@ import Header from './components/header/header';
 import Login from './components/login/login';
 import NewProfile from './components/profile/newProfile';
 import { Link, Route, Switch } from 'react-router-dom';
+import MdProfile from './components/profile/mdProfile';
 
 function App() {
   return (
@@ -15,6 +16,9 @@ function App() {
         </Route>
         <Route exact path="/newProfile">
           <NewProfile />
+        </Route>
+        <Route exact path="/mdProfile">
+          <MdProfile />
         </Route>
       </Switch>
       <Footer />
