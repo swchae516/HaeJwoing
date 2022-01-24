@@ -24,20 +24,20 @@ const NewProfile = props => {
     { name: '여자', value: '2' },
   ];
   const [startDate, setStartDate] = useState(new Date());
-  const years = _.range(1990, getYear(new Date()) + 1, 1); // 수정
+  const years = _.range(1990, getYear(new Date()) + 1, 1);
   const months = [
-    'January',
-    'February',
-    'March',
-    'April',
-    'May',
-    'June',
-    'July',
-    'August',
-    'September',
-    'October',
-    'November',
-    'December',
+    '01',
+    '02',
+    '03',
+    '04',
+    '05',
+    '06',
+    '07',
+    '08',
+    '09',
+    '10',
+    '11',
+    '12',
   ];
   return (
     <>
