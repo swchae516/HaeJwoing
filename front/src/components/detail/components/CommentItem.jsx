@@ -5,6 +5,7 @@ const CommentWrapped = styled.div`
   width: 90%;
   margin:0 5% 0 5%;
   display: flex;
+  margin-bottom: 5px;
 `
 
 const ProfileThumnail = styled.img`
@@ -16,6 +17,7 @@ const ProfileThumnail = styled.img`
 
 const CommentDiv = styled.div`
   margin-left: 5px;
+  width: 85%;
 `
 
 const ProfileName = styled.b`
@@ -32,18 +34,25 @@ const CommentContent = styled.p`
   text-align: left;
 `
 
-function Comment() {
+
+function CommentItem({profilename, writetime, content}) {
+
+
     return (
         <>
           <CommentWrapped>
             <ProfileThumnail src="../../../img/tmpprofile2.jpg" alt="프로필사진" />
                 <CommentDiv>
-                    <ProfileName>김아무개</ProfileName>
-                    <WriteTime>3분전</WriteTime>
-                    <CommentContent>ㄹㅇㅋㅋ</CommentContent>
+                  <div style={{textAlign:'start'}}>
+                    <ProfileName>{profilename}</ProfileName>
+                  </div>
+                  <div>
+                    <CommentContent>{content}</CommentContent>
+                  </div>
                 </CommentDiv>
+                    <WriteTime>{writetime}분 전</WriteTime>
           </CommentWrapped>
         </>
     )
 }
-export default Comment
+export default CommentItem
