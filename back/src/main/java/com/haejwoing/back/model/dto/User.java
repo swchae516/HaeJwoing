@@ -1,10 +1,12 @@
 package com.haejwoing.back.model.dto;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
+@Builder
 public class User {
     private int id;
     private String email;
@@ -12,4 +14,5 @@ public class User {
     private String gender;
     private String birth;
     private String image;
+    private String role;
 }

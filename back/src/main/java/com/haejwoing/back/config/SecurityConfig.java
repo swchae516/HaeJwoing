@@ -25,9 +25,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .formLogin().disable()
                 .httpBasic().disable()
                 .authorizeRequests()
-                .antMatchers("/user/**")
+//                .antMatchers("/user/**")
 //                .access("hasRole('ROLE_USER')")
-                .permitAll()
+//                .permitAll()
                 .anyRequest().permitAll();
     }
 }
