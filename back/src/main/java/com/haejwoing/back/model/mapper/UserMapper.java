@@ -6,5 +6,6 @@ import org.apache.ibatis.annotations.Mapper;
 @Mapper
 public interface UserMapper {
 
-    int join(User user);
+    void insertUser(User user);
+    User searchByUserName(String userName);
 }
