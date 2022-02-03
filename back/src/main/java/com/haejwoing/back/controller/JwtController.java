@@ -14,7 +14,7 @@ import java.time.LocalDateTime;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/oauth/jwt")
+@RequestMapping("/jwt")
 public class JwtController {
 
     @Autowired
