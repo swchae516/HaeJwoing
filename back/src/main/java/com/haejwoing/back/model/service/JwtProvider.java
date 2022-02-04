@@ -20,7 +20,6 @@ public class JwtProvider {
                 .withSubject(user.getNickname())
                 .withExpiresAt(new Date(System.currentTimeMillis()+ JwtProperties.EXPIRATION_TIME))
                 .withClaim("email", user.getEmail())
-                .withClaim("username", user.getNickname())
                 .sign(Algorithm.HMAC512(JwtProperties.SECRET));
         return jwtToken;
     }

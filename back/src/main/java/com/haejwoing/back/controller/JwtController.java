@@ -25,7 +25,9 @@ public class JwtController {
 
         System.out.println(data.get("profileObj"));
 //        System.out.println(googleUser.getEmail());
-        User userEntity = userServiceImpl.searchByUsername(googleUser.getuserName());
+
+        User userEntity = userServiceImpl.searchByEmail(googleUser.getEmail());
+
 
         if(userEntity == null){
             System.out.println("구글 로그인으로 사이트 처음 방문");
@@ -33,9 +35,14 @@ public class JwtController {
                     .email(googleUser.getEmail())
                     .nickname(googleUser.getuserName())
                     .role("ROLE_USER")
+                    .image(googleUser.getImage())
                     .build();
+
+
+            userServiceImpl.setPoint(userRequest.getEmail());
             userServiceImpl.insertUser(userRequest);
-            userEntity = userServiceImpl.searchByUsername(googleUser.getuserName());
+            userEntity = userServiceImpl.searchByEmail(googleUser.getEmail());
+
         }
 
         String jwtToken = new JwtProvider().createJwtToken(userEntity);

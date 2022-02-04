@@ -18,5 +18,6 @@ public class GoogleUser {
         return (String) google.get("email");
     }
 
+    public String getImage(){ return (String) google.get("imageUrl");}
 
 }

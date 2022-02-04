@@ -15,4 +15,5 @@ public class User {
     private String birth;
     private String image;
     private String role;
+    private int userStatus;
 }

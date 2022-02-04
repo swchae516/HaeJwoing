@@ -6,8 +6,30 @@
         insert into user(nickname, email, gender, role)
         values (#{nickname}, #{email}, #{gender}, #{role})
     </insert>
-    <select id="searchByUserName" parameterType="String" resultType="User">
+
+    <insert id="setPoint" parameterType="String">
+        insert into point(email) values (#{email})
+    </insert>
+
+    <select id="searchByEmail" parameterType="String" resultType="User">
         select * from user
-        where nickname = #{nickname}
+        where email = #{email}
+    </select>
+
+    <select id="listAllUser" resultType="map">
+        select nickname, email, gender, birth, image, role
+        from user
+    </select>
+
+    <update id="withdrawUser" parameterType="String">
+        update user
+        set user_status = 0
+        where email like #{email}
+    </update>
+
+    <select id="listFollower" parameterType="String" resultType="map">
+        select from_user
+        from follower
+        where follower.to_user like #{email}
     </select>
 </mapper>

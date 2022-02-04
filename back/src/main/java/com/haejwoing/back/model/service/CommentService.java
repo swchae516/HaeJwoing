@@ -1,42 +1,19 @@
 package com.haejwoing.back.model.service;
 
 import com.haejwoing.back.model.dto.Comment;
-import com.haejwoing.back.model.mapper.CommentMapper;
-import org.apache.ibatis.session.SqlSession;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Service
-public class CommentService implements CommentServiceImpl{
+public interface CommentService {
 
-    @Autowired
-    private SqlSession sqlSession;
+    List<Comment> getList();
 
+    Comment get(int commentId);
 
-    @Override
-    public List<Comment> getList() {
-        return sqlSession.getMapper(CommentMapper.class).getList();
-    }
+    void save(Comment comment);
 
-    @Override
-    public Comment get(int commentId) {
-        return null;
-    }
+    void update(Comment comment);
 
-    @Override
-    public void save(Comment comment) {
-        sqlSession.getMapper(CommentMapper.class).save(comment);
-    }
+    void delete(int commentId);
 
-    @Override
-    public void update(Comment comment) {
-
-    }
-
-    @Override
-    public void delete(int commentId) {
-
-    }
 }
