@@ -24,8 +24,8 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
-    public List<User> listUser() {
-        return null;
+    public List<User> listAllUser() {
+        return sqlSession.getMapper(UserMapper.class).listAllUser();
     }
 
     @Override

@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface UserService {
     void insertUser(User user);
-    List<User> listUser();
+    List<User> listAllUser();
     User searchByEmail(String email);
     void withdrawUser(String email);
     void setPoint(String email);
