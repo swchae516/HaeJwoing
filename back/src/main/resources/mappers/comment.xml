@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.haejwoing.back.model.mapper.CommentMapper">
+    <select id = 'getList' parameterType="com.haejwoing.back.model.dto.Board" resultType="com.haejwoing.back.model.dto.Comment">
+        SELECT * FROM COMMENT
+
+    </select>
+
+    <select id="save" parameterType="com.haejwoing.back.model.dto.Comment" >
+
+    INSERT INTO BOARD(title, view_range, content, board_image, type, vote_idvote)
+    VALUES (#{title}, #{view_range}, #{content}, #{board_image}, #{type}, #{vote_idvote})
+
+    </select>
+
+    <insert id="int" parameterType="com.haejwoing.back.model.dto.Comment">
+
+
+    </insert>
+
+</mapper>

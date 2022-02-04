@@ -9,7 +9,7 @@
 
     <select id="save" parameterType="com.haejwoing.back.model.dto.Board" >
 
-    INSERT INTO BOARD(title, view_range, content, board_image, type, vote_idvote)
+    INSERT INTO COMMENT(title, view_range, content, board_image, type, vote_idvote)
     VALUES (#{title}, #{view_range}, #{content}, #{board_image}, #{type}, #{vote_idvote})
 
     </select>
