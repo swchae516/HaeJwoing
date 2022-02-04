@@ -7,11 +7,33 @@
 
     </select>
 
-    <select id="save" parameterType="com.haejwoing.back.model.dto.Board" >
+    <select id="get" parameterType="int" resultType="com.haejwoing.back.model.dto.Board">
+
+        SELECT * FROM BOARD WHERE idboard=#{idboard}
+
+
+    </select>
+
+    <insert id="save" parameterType="com.haejwoing.back.model.dto.Board" >
 
     INSERT INTO COMMENT(title, view_range, content, board_image, type, vote_idvote)
     VALUES (#{title}, #{view_range}, #{content}, #{board_image}, #{type}, #{vote_idvote})
 
-    </select>
+    </insert>
+
+    <update id="update" parameterType="int">
+
+    UPDATE BOARD SET title=#{title}, view_range=#{view_range}, content=#{content}
+    WHERE idboard = #{idboard}
+
+    </update>
+
+    <delete id="delete" parameterType="Board">
+
+    DELETE FROM BOARD
+    WHERE idboard = #{idboard}
+
+    </delete>
+
 
 </mapper>

@@ -10,9 +10,9 @@ public interface BoardImpl {
 
     Board get(int boardSeq);
 
-    void save(Board board);
+    boolean save(Board board) throws Exception;
 
-    void update(Board board);
+    void update(int boardSeq);
 
     void delete(int boardSeq);
 

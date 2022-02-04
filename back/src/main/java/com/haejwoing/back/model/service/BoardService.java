@@ -21,22 +21,25 @@ public class BoardService implements BoardImpl{
     }
 
     @Override
-    public Board get(int boardSeq) {
-        return null;
+    public Board get(int idboard) {
+        return sqlSession.getMapper(BoardMapper.class).get(idboard);
     }
 
     @Override
-    public void save(Board board) {
-        sqlSession.getMapper(BoardMapper.class).save(board);
+    public boolean save(Board board) throws Exception{
+        if(board.getContent() == null){
+            throw new Exception();
+        }
+        return sqlSession.getMapper(BoardMapper.class).save(board)==1;
     }
 
     @Override
-    public void update(Board board) {
-
+    public void update(int boardSeq) {
+        sqlSession.getMapper(BoardMapper.class).update(boardSeq);
     }
 
     @Override
     public void delete(int boardSeq) {
-
+        sqlSession.getMapper(BoardMapper.class).delete(boardSeq);
     }
 }

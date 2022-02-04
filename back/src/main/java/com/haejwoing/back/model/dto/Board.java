@@ -13,7 +13,6 @@ public class Board {
     private String content;
     private String board_image;
     private int type;
-    private int user_id;
     private int vote_idvote;
 
 }
