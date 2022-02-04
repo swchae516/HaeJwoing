@@ -8,8 +8,25 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-public interface UserServiceImpl {
-    void insertUser(User user);
-    List<User> listUser();
-    User searchByUsername(String userName);
+@Service
+public class UserServiceImpl implements UserService{
+
+    @Autowired
+    private SqlSession sqlSession;
+
+
+    @Override
+    public void insertUser(User user) {
+        sqlSession.getMapper(UserMapper.class).insertUser(user);
+    }
+
+    @Override
+    public List<User> listUser() {
+        return null;
+    }
+
+    @Override
+    public User searchByUsername(String userName) {
+        return sqlSession.getMapper(UserMapper.class).searchByUserName(userName);
+    }
 }

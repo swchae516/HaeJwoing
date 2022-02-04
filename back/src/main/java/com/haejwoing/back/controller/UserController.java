@@ -1,7 +1,6 @@
 package com.haejwoing.back.controller;
 
 import com.haejwoing.back.model.dto.User;
-import com.haejwoing.back.model.service.UserService;
 import com.haejwoing.back.model.service.UserServiceImpl;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
@@ -20,7 +19,7 @@ import java.util.Map;
 public class UserController {
 
     @Autowired
-    private UserService userService;
+    private UserServiceImpl userService;
 
     @ApiOperation(value = "회원정보")
     @GetMapping("/{nickname}")

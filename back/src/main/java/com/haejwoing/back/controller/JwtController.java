@@ -3,14 +3,13 @@ package com.haejwoing.back.controller;
 import com.haejwoing.back.model.dto.GoogleUser;
 import com.haejwoing.back.model.dto.User;
 import com.haejwoing.back.model.service.JwtProvider;
-import com.haejwoing.back.model.service.UserService;
+import com.haejwoing.back.model.service.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.time.LocalDateTime;
 import java.util.Map;
 
 @RestController
@@ -18,15 +17,15 @@ import java.util.Map;
 public class JwtController {
 
     @Autowired
-    private UserService userService;
+    private UserServiceImpl userServiceImpl;
 
     @PostMapping("/google")
     public String insertUser(@RequestBody Map<String, Object> data){
-        GoogleUser googleUser = new GoogleUser((Map<String, Object>)data.get("profileObj"));
+        GoogleUser googleUser = new GoogleUser((Map<String, Object>) data.get("profileObj"));
 
         System.out.println(data.get("profileObj"));
 //        System.out.println(googleUser.getEmail());
-        User userEntity = userService.searchByUsername(googleUser.getuserName());
+        User userEntity = userServiceImpl.searchByUsername(googleUser.getuserName());
 
         if(userEntity == null){
             System.out.println("구글 로그인으로 사이트 처음 방문");
@@ -35,8 +34,8 @@ public class JwtController {
                     .nickname(googleUser.getuserName())
                     .role("ROLE_USER")
                     .build();
-            userService.insertUser(userRequest);
-            userEntity = userService.searchByUsername(googleUser.getuserName());
+            userServiceImpl.insertUser(userRequest);
+            userEntity = userServiceImpl.searchByUsername(googleUser.getuserName());
         }
 
         String jwtToken = new JwtProvider().createJwtToken(userEntity);
