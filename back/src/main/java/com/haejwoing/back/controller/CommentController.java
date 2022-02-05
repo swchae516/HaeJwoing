@@ -15,10 +15,6 @@ public class CommentController {
     @Autowired
     private CommentService commentService;
 
-//    @GetMapping("")
-//    public List<Comment> getList() {
-//        return CommentService.getList();
-//    }
 
     @GetMapping("/{idComment}")
     public Comment get(@PathVariable int idComment) {
