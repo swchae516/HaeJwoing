@@ -10,7 +10,7 @@ public interface CommentMapper {
 
     List<Comment> getList();
 
-    Comment get(int commentId);
+    Comment get(int idcomment);
 
     int save(Comment comment);
 

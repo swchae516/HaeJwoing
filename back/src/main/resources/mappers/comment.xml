@@ -15,8 +15,8 @@
 
     <insert id="save" parameterType="com.haejwoing.back.model.dto.Comment">
 
-        INSERT INTO COMMENT(content, created_at, updated_at, idboard, user_id)
-        VALUES (#{content}, #{created_at}, now(), now(), #{idboard}, #{user_id})
+        INSERT INTO COMMENT(idComment, content, created_at, updated_at, board_idboard, user_id)
+        VALUES (#{idComment}, #{content}, now(), now(), #{board_idboard}, #{user_id})
 
     </insert>
 

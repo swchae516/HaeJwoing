@@ -21,9 +21,9 @@ public class CommentServiceImpl implements CommentService{
     }
 
     @Override
-    public Comment get(int commentId) {
+    public Comment get(int idcomment) {
 
-        return sqlSession.getMapper(CommentMapper.class).get(commentId);
+        return sqlSession.getMapper(CommentMapper.class).get(idcomment);
     }
 
     @Override

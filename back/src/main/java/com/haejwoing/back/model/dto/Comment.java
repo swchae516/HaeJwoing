@@ -10,7 +10,7 @@ public class Comment {
     private String content;
     private LocalDateTime created_at;
     private LocalDateTime updated_at;
-    private int idboard;
+    private int board_idboard;
     private int user_id;
 
 }

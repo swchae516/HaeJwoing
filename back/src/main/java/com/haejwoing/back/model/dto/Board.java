@@ -23,6 +23,6 @@ public class Board {
     private LocalDateTime created_at;
     private LocalDateTime updated_at;
     private LocalDateTime due_date;
-    private String vote_contents;
+    private Json vote_contents;
 
 }

@@ -8,7 +8,7 @@ public interface CommentService {
 
     List<Comment> getList();
 
-    Comment get(int commentId);
+    Comment get(int idcomment);
 
     boolean save(Comment comment) throws Exception;
 

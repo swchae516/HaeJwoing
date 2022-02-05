@@ -23,9 +23,9 @@ public class CommentController {
         return new ResponseEntity<List<Comment>>(commentService.getList(), HttpStatus.OK);
     }
 
-    @GetMapping("/{idComment}")
-    public ResponseEntity<Comment> CommentList(@PathVariable int idComment){
-        return new ResponseEntity<Board>(CommentService.get(idComment), HttpStatus.OK);
+    @GetMapping("/{idcomment}")
+    public ResponseEntity<Comment> CommentList(@PathVariable int idcomment){
+        return new ResponseEntity<Comment>(commentService.get(idcomment), HttpStatus.OK);
     }
 
 
