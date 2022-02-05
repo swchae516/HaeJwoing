@@ -29,7 +29,6 @@ public class JwtController {
         User userEntity = userServiceImpl.searchByEmail(googleUser.getEmail());
 
 
-
         if(userEntity == null){
             System.out.println("구글 로그인으로 사이트 처음 방문");
             User userRequest = User.builder()
