@@ -22,21 +22,29 @@ public class CommentServiceImpl implements CommentService{
 
     @Override
     public Comment get(int commentId) {
-        return null;
+
+        return sqlSession.getMapper(CommentMapper.class).get(commentId);
     }
 
     @Override
-    public void save(Comment comment) {
-        sqlSession.getMapper(CommentMapper.class).save(comment);
+    public boolean save(Comment comment) throws Exception {
+        if (comment.getContent() == null) {
+            throw new Exception();
+        }
+        return sqlSession.getMapper(CommentMapper.class).save(comment) == 1;
     }
 
     @Override
-    public void update(Comment comment) {
+    public boolean update(Comment comment) {
 
+        return sqlSession.getMapper(CommentMapper.class).update(comment);
     }
 
     @Override
-    public void delete(int commentId) {
+    public boolean delete(int commentId) {
 
+        sqlSession.getMapper(CommentMapper.class).delete(commentId);
+
+        return sqlSession.getMapper(CommentMapper.class).delete(commentId);
     }
 }

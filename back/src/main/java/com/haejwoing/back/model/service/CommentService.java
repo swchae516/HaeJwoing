@@ -10,10 +10,10 @@ public interface CommentService {
 
     Comment get(int commentId);
 
-    void save(Comment comment);
+    boolean save(Comment comment) throws Exception;
 
-    void update(Comment comment);
+    boolean update(Comment comment);
 
-    void delete(int commentId);
+    boolean delete(int commentId);
 
 }

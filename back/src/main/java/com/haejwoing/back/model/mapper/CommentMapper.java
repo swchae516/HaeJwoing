@@ -1,19 +1,21 @@
 package com.haejwoing.back.model.mapper;
 
 import com.haejwoing.back.model.dto.Comment;
+import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
 
+@Mapper
 public interface CommentMapper {
 
     List<Comment> getList();
 
     Comment get(int commentId);
 
-    void save(Comment comment);
+    int save(Comment comment);
 
-    void update(Comment comment);
+    boolean update(Comment comment);
 
-    void delete(int commentId);
+    boolean delete(int commentId);
 
 }
