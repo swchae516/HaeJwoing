@@ -4,6 +4,7 @@ package com.haejwoing.back.controller;
 import com.haejwoing.back.model.dto.Board;
 import com.haejwoing.back.model.service.BoardService;
 import com.sun.net.httpserver.Authenticator;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -34,6 +35,7 @@ public class BoardController {
 
     @PostMapping("/save")
    public ResponseEntity<String> save(@RequestBody Board board) throws Exception {
+        System.out.println(board);
         if(boardService.save(board)){
             return new ResponseEntity<String>(HttpStatus.OK);
         }
@@ -41,6 +43,7 @@ public class BoardController {
     }
 
     @PutMapping("/update")
+
     public ResponseEntity<String> update(@RequestBody Board board){
         System.out.println(board);
         if(boardService.update(board)){

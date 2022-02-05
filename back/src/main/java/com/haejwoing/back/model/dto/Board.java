@@ -1,7 +1,10 @@
 package com.haejwoing.back.model.dto;
 
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import nonapi.io.github.classgraph.json.Id;
 import springfox.documentation.spring.web.json.Json;
 
@@ -12,6 +15,8 @@ import java.util.List;
 import java.util.Map;
 
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class Board {
 
     private int idboard;
@@ -23,6 +28,8 @@ public class Board {
     private LocalDateTime created_at;
     private LocalDateTime updated_at;
     private LocalDateTime due_date;
-    private Json vote_contents;
+
+
+    private String vote_contents;
 
 }
