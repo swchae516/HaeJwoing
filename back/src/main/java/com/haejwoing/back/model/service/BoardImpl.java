@@ -34,12 +34,15 @@ public class BoardImpl implements BoardService{
     }
 
     @Override
-    public void update(int boardSeq) {
-        sqlSession.getMapper(BoardMapper.class).update(boardSeq);
+    public boolean update(Board board) {
+
+        return sqlSession.getMapper(BoardMapper.class).update(board);
     }
 
     @Override
-    public void delete(int boardSeq) {
-        sqlSession.getMapper(BoardMapper.class).delete(boardSeq);
+    public boolean delete(int idboard){
+
+        sqlSession.getMapper(BoardMapper.class).delete(idboard);
+        return sqlSession.getMapper(BoardMapper.class).delete(idboard);
     }
 }

@@ -21,6 +21,7 @@ public class BoardController {
 
     @GetMapping("")
     public ResponseEntity<List<Board>> BoardList(Board board){
+
         return new ResponseEntity<List<Board>>(boardService.getList(), HttpStatus.OK);
     }
 
@@ -39,15 +40,22 @@ public class BoardController {
         return new ResponseEntity<String>(HttpStatus.NO_CONTENT);
     }
 
-    @PutMapping("/update/{boardSeq}")
-    public void update(@PathVariable int boardSeq){
-        boardService.update(boardSeq);
+    @PutMapping("/update")
+    public ResponseEntity<String> update(@RequestBody Board board){
+        System.out.println(board);
+        if(boardService.update(board)){
+            return new ResponseEntity<String>(HttpStatus.OK);
+        }
+        return new ResponseEntity<String>(HttpStatus.BAD_REQUEST);
     }
 
 
-    @DeleteMapping("/delete/{boardSeq}")
-    public void delete(@PathVariable int boardSeq){
-        boardService.delete(boardSeq);
+    @DeleteMapping("/delete/{idboard}")
+    public ResponseEntity<String> delete(@PathVariable int idboard){
+        if(boardService.delete(idboard)){
+            return new ResponseEntity<String>(HttpStatus.OK);
+        }
+        return new ResponseEntity<String>(HttpStatus.NO_CONTENT);
     }
 
 

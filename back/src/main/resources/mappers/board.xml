@@ -21,7 +21,7 @@
 
     </insert>
 
-    <update id="update" parameterType="int">
+    <update id="update" parameterType="Board">
 
     UPDATE BOARD SET title=#{title}, view_range=#{view_range}, content=#{content}
     WHERE idboard = #{idboard}

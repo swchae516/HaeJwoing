@@ -14,8 +14,8 @@ public interface BoardMapper {
 
     int save(Board board);
 
-    void update(int boardSeq);
+    boolean update(Board board);
 
-    void delete(int boardSeq);
+    boolean delete(int boardSeq);
 
 }

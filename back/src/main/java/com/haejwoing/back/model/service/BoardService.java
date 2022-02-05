@@ -12,8 +12,7 @@ public interface BoardService {
 
     boolean save(Board board) throws Exception;
 
-    void update(int boardSeq);
+    boolean update(Board board);
 
-    void delete(int boardSeq);
-
+    boolean delete(int boardSeq);
 }
