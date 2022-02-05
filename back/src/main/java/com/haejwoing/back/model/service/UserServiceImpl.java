@@ -47,4 +47,5 @@ public class UserServiceImpl implements UserService{
     public void setPoint(String email) {
         sqlSession.getMapper(UserMapper.class).setPoint(email);
     }
+
 }

@@ -12,4 +12,5 @@ public interface UserService {
     void withdrawUser(String email);
     void setPoint(String email);
     List<User> listFollower(String email);
+
 }
