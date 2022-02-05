@@ -16,14 +16,16 @@
 
     <insert id="save" parameterType="com.haejwoing.back.model.dto.Board" >
 
-    INSERT INTO BOARD(title, view_range, content, board_image, type, vote_idvote)
-    VALUES (#{title}, #{view_range}, #{content}, #{board_image}, #{type}, #{vote_idvote})
+
+
+    INSERT INTO BOARD(view_range, content, board_image, type, created_at, due_date, vote_contents)
+    VALUES (#{view_range}, #{content}, #{board_image}, #{type}, now(), now() + interval 7 day, #{vote_contents})
 
     </insert>
 
     <update id="update" parameterType="Board">
 
-    UPDATE BOARD SET title=#{title}, view_range=#{view_range}, content=#{content}
+    UPDATE BOARD SET view_range=#{view_range}, content=#{content}, updated_at= now()
     WHERE idboard = #{idboard}
 
     </update>
