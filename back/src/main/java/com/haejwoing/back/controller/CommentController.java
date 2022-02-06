@@ -1,6 +1,5 @@
 package com.haejwoing.back.controller;
 
-import com.haejwoing.back.model.dto.Board;
 import com.haejwoing.back.model.dto.Comment;
 import com.haejwoing.back.model.service.CommentService;
 import org.springframework.beans.factory.annotation.Autowired;
