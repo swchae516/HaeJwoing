@@ -17,8 +17,14 @@
     <insert id="save" parameterType="com.haejwoing.back.model.dto.Board" >
 
 
+<<<<<<< Updated upstream
     INSERT INTO BOARD(view_range, content, board_image, type, created_at, due_date, vote_contents)
     VALUES (#{view_range}, #{content}, #{board_image}, #{type}, now(), #{due_date} , #{vote_contents})
+=======
+
+    INSERT INTO BOARD(view_range, content, board_image, type, created_at, due_date, vote_contents)
+    VALUES (#{view_range}, #{content}, #{board_image}, #{type}, now(), now() + interval 7 day, #{vote_contents})
+>>>>>>> Stashed changes
 
     </insert>
 
