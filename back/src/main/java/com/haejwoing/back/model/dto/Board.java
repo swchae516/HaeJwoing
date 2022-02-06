@@ -1,6 +1,7 @@
 package com.haejwoing.back.model.dto;
 
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -27,7 +28,8 @@ public class Board {
 
     private LocalDateTime created_at;
     private LocalDateTime updated_at;
-    private LocalDateTime due_date;
+    private String due_date;
+
 
 
     private String vote_contents;
