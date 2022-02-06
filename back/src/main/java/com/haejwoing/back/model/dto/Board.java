@@ -28,14 +28,10 @@ public class Board {
 
     private LocalDateTime created_at;
     private LocalDateTime updated_at;
-<<<<<<< Updated upstream
     private String due_date;
 
 
 
-=======
-    private LocalDateTime due_date;
->>>>>>> Stashed changes
     private String vote_contents;
 
 }
