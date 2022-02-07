@@ -29,9 +29,7 @@ public class Board {
     private LocalDateTime created_at;
     private LocalDateTime updated_at;
     private String due_date;
-
-
-
     private String vote_contents;
+    private String vote_users;
 
 }
