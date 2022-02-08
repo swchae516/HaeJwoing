@@ -34,6 +34,6 @@ public class Board {
     private String hashArr;
     private List hasArrList;
 
-    private int recent_id;
+    private String recent_id;
 
 }
