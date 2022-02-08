@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.haejwoing.back.model.mapper.HashTagMapper">
+
+    <select id="recent_id" parameterType="int" resultType="int">
+
+        SELECT idboard FROM BOARD ORDER BY idboard DESC LIMIT 1
+
+    </select>
+
+
+    <insert id="save" parameterType="com.haejwoing.back.model.dto.HashTag" >
+
+
+
+    </insert>
+
+
+
+</mapper>
