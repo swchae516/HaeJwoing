@@ -73,6 +73,7 @@ public class UserController {
         log.info("{}",id);
         HttpStatus status = HttpStatus.ACCEPTED;
 
+
         Map<String, Object> result = new HashMap<>();
         User user = userService.searchById(id);
         log.info("user : {}", user);
