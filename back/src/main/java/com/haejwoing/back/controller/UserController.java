@@ -67,22 +67,23 @@ public class UserController {
     }
 
     @ApiOperation(value = "회원정보")
-    @GetMapping("/{nickname}")
-    public ResponseEntity<Map<String, Object>> userInfo(@PathVariable @ApiParam(value = "유저 nickname") String nickname){
+    @GetMapping("/{id}")
+    public ResponseEntity<Map<String, Object>> userInfo(@PathVariable @ApiParam(value = "유저 id") int id){
         log.info("회원정보 ");
-        log.info("{}",nickname);
+        log.info("{}",id);
         HttpStatus status = HttpStatus.ACCEPTED;
 
         Map<String, Object> result = new HashMap<>();
-        User user = userService.searchByEmail(nickname);
-        System.out.println(user);
+        User user = userService.searchById(id);
+        log.info("user : {}", user);
         result.put("info", user);
+
 
         return new ResponseEntity<Map<String, Object>>(result, status);
     }
 
     @ApiOperation(value = "모든 사용자")
-    @GetMapping()
+    @GetMapping("")
     public ResponseEntity<Map<String, Object>> listAllUser(){
         log.info("모든 사용자 정보 반환");
 
