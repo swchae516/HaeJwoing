@@ -34,7 +34,7 @@ public class UserController {
 
     @ApiOperation(value = "회원 가입")
     @PostMapping()
-    public ResponseEntity<String> userRegister(@RequestBody User user) throws IOException {
+    public ResponseEntity<Map<String, Object>> userRegister(@RequestBody User user) throws IOException {
         log.info("회원 가입 호출");
         log.info("유저 정보 : {}", user);
 
@@ -58,7 +58,12 @@ public class UserController {
 
         String jwtToken = new JwtProvider().createJwtToken(userRequest);
 
-        return new ResponseEntity<>(jwtToken, HttpStatus.OK);
+        Map<String, Object> map = new HashMap<>();
+        map.put("id", userRequest.getId());
+        map.put("jwtToken", jwtToken);
+
+
+        return new ResponseEntity<>(map, HttpStatus.OK);
     }
 
     @ApiOperation(value = "회원정보")
