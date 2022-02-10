@@ -110,13 +110,20 @@ public class JwtController {
         else return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
-    @PostMapping("/kakao")
     public ResponseEntity<Map<String, Object>> isKakaoUser(@RequestBody Map<String, Object> data){
         log.info("data : {}", data);
         log.info("data.profile : {}", data.get("profile"));
         Map<String, Object> kakaoMap = new HashMap<>();
         kakaoMap = (Map<String, Object>) data.get("profile");
         log.info("kakao_account {}", kakaoMap.get("kakao_account"));
+
+        Map<String, Object> accountMap = new HashMap<>();
+        accountMap = (Map<String, Object>) kakaoMap.get("kakao_account");
+        log.info("kakao_account {}", accountMap);
+
+//        Map<String, Object> profileMap = new HashMap<>();
+        String profileMap = (String) accountMap.get("email");
+        log.info("map : {}", profileMap);
 //        System.out.println(kakaoMap.get("kakao_account"));
 //        String email = kakaoMap.get("kakao_account");
 //      log.info("Auth : {}", Auth);
