@@ -26,9 +26,9 @@ public class Board {
     private String board_image;
     private int type;
 
-    private long created_at;
+    private int created_at;
     private LocalDateTime updated_at;
-    private String due_date;
+    private int due_date;
     private String vote_contents;
     private String vote_users;
     private String hashArr;
