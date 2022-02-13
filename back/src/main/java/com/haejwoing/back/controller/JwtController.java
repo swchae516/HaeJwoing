@@ -1,21 +1,16 @@
 package com.haejwoing.back.controller;
 
 import com.haejwoing.back.model.dto.GoogleUser;
-import com.haejwoing.back.model.dto.NaverUser;
 import com.haejwoing.back.model.dto.User;
 import com.haejwoing.back.model.service.JwtProvider;
 import com.haejwoing.back.model.service.UserServiceImpl;
-import io.jsonwebtoken.Jws;
-import io.jsonwebtoken.Jwts;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 @Slf4j
@@ -110,6 +105,7 @@ public class JwtController {
         else return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
+    @PostMapping("/kakao")
     public ResponseEntity<Map<String, Object>> isKakaoUser(@RequestBody Map<String, Object> data){
         log.info("data : {}", data);
         log.info("data.profile : {}", data.get("profile"));
@@ -117,18 +113,12 @@ public class JwtController {
         kakaoMap = (Map<String, Object>) data.get("profile");
         log.info("kakao_account {}", kakaoMap.get("kakao_account"));
 
-        Map<String, Object> accountMap = new HashMap<>();
-        accountMap = (Map<String, Object>) kakaoMap.get("kakao_account");
-        log.info("kakao_account {}", accountMap);
+        Map<String, Object> str = new HashMap<>();
+        str = (Map<String, Object>) kakaoMap.get("kakao_account");
 
-//        Map<String, Object> profileMap = new HashMap<>();
-        String profileMap = (String) accountMap.get("email");
-        log.info("map : {}", profileMap);
-//        System.out.println(kakaoMap.get("kakao_account"));
-//        String email = kakaoMap.get("kakao_account");
-//      log.info("Auth : {}", Auth);
+        System.out.println(str.get("email"));
 
-        User userEntity = userServiceImpl.searchByEmail((String) data.get("email"));
+        User userEntity = userServiceImpl.searchByEmail((String) str.get("email"));
 
 //        Map<String, Object> tokenObj = (Map<String, Object>) data.get("tokenObj");
 //        log.info("tokenObj : {}", tokenObj);
@@ -139,7 +129,7 @@ public class JwtController {
             log.info("카카오 로그인 첫 방문");
             Map<String, Object> map = new HashMap<>();
             map.put("check", false);
-            map.put("email", data.get("email"));
+            map.put("email", str.get("email"));
             log.info(map.toString());
             return new ResponseEntity<>(map, HttpStatus.OK);
 

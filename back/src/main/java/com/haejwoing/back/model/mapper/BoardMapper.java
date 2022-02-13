@@ -12,11 +12,14 @@ public interface BoardMapper {
 
     Board get(int boardSeq);
 
+    List<Board> getUser(int userId);
+
     boolean save(Board board);
 
     boolean update(Board board);
 
     boolean delete(int boardSeq);
 
+    int due_date_id(int due_date_id);
 
 }

@@ -11,14 +11,22 @@
 
         SELECT * FROM BOARD WHERE idboard=#{idboard}
 
+
     </select>
 
+    <select id="getUser" parameterType="int" resultType="com.haejwoing.back.model.dto.Board">
+
+        SELECT * FROM BOARD WHERE userId=#{userId} ORDER BY created_at DESC
+
+
+    </select>
 
     <insert id="save" parameterType="com.haejwoing.back.model.dto.Board" >
 
 
-    INSERT INTO BOARD(view_range, content, board_image, type, created_at, due_date, vote_contents, vote_users, userId)
-    VALUES (#{view_range}, #{content}, #{board_image}, #{type}, unix_timestamp(now()), #{due_date} , #{vote_contents}, #{vote_users}, #{userId})
+    INSERT INTO BOARD(view_range, content, board_image, type, created_at, due_date, vote_contents,  userId, hashArr)
+    VALUES (#{view_range}, #{content}, #{board_image}, #{type}, unix_timestamp(now()), #{due_date} , #{vote_contents}, #{userId}, #{hashArr})
+
 
     </insert>
 
@@ -35,6 +43,25 @@
     WHERE idboard = #{idboard}
 
     </delete>
+
+
+    <select id="due_date_id" parameterType="int" resultType="int">
+
+        SELECT due_date FROM BOARD ORDER BY idboard DESC LIMIT 1
+
+    </select>
+
+    <select id="find_vote_list" parameterType="int" resultType="String">
+
+        SELECT vote_users FROM BOARD WHERE idboard = #{board_id}
+
+    </select>
+
+    <update id="save_votes_users" parameterType="Board">
+
+        UPDATE BOARD SET vote_users=#{vote_users} WHERE idboard = #{idboard}
+
+    </update>
 
 
 </mapper>

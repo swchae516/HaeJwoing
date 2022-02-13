@@ -30,7 +30,6 @@ public class Board {
     private LocalDateTime updated_at;
     private int due_date;
     private String vote_contents;
-    private String vote_users;
     private String hashArr;
     private int userId;
 
@@ -38,4 +37,5 @@ public class Board {
 
     private String recent_id;
 
+    private String error_message;
 }

@@ -1,19 +1,16 @@
 package com.haejwoing.back.controller;
 
 import com.haejwoing.back.model.dto.User;
-import com.haejwoing.back.model.service.FileService;
-import com.haejwoing.back.model.service.FileServiceImpl;
+
 import com.haejwoing.back.model.service.JwtProvider;
 import com.haejwoing.back.model.service.UserServiceImpl;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
-import io.swagger.models.Response;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -28,9 +25,6 @@ public class UserController {
 
     @Autowired
     private UserServiceImpl userService;
-
-    @Autowired
-    private FileService fileService;
 
     @ApiOperation(value = "회원 가입")
     @PostMapping()
@@ -50,7 +44,8 @@ public class UserController {
                 .nickname(user.getNickname())
                 .role("ROLE_USER")
                 .point(0)
-//                .image(String.valueOf(uploadImage))
+                .userStatus(1)
+                .image(user.getImage())
                 .build();
 
         log.info("저장될 유저 정보 : {}", userRequest);
@@ -58,8 +53,10 @@ public class UserController {
 
         String jwtToken = new JwtProvider().createJwtToken(userRequest);
 
+        int responseId = userService.getUserId(userRequest.getEmail());
+
         Map<String, Object> map = new HashMap<>();
-        map.put("id", userRequest.getId());
+        map.put("id", responseId);
         map.put("jwtToken", jwtToken);
 
 
@@ -96,14 +93,41 @@ public class UserController {
     }
 
     @ApiOperation(value = "회원 탈퇴")
-    @PutMapping("/withdraw/{email}")
-    public ResponseEntity<String> withdrawUser(@PathVariable @ApiParam String email){
+    @PutMapping("/withdraw/{id}")
+    public ResponseEntity<String> withdrawUser(@PathVariable @ApiParam int id){
         // 인증 작업 필요
-
-        userService.withdrawUser(email);
+        
+        userService.withdrawUser(id);
 
         return new ResponseEntity<>("회원탈퇴 완료", HttpStatus.OK);
 
     }
 
+    @ApiOperation(value = "프로필 수정")
+    @PutMapping("/{id}")
+    public ResponseEntity<String> updateProfile(@PathVariable int id, @RequestBody @ApiParam(value = "해당 정보로 프로필 수정요청") User user){
+        log.info("프로필 수정할 id : {}" , id);
+        user.setId(id);
+        log.info("프로필 수정할 정보 : {}", user);
+
+        userService.updateProfile(user);
+
+        return new ResponseEntity<>("회원수정 완료", HttpStatus.OK);
+    }
+
+    @ApiOperation(value = "nickname 중복검사")
+    @GetMapping("/check/{nickname}")
+    public ResponseEntity<Boolean> checkNickname(@PathVariable @ApiParam(value = "해당 닉네임 중복검사") String nickname){
+        log.info("중복검사할 닉네임 : {}", nickname);
+
+        // 해당 닉네임 있으면 true
+        if(userService.checkNickname(nickname)){
+            return new ResponseEntity<>(true, HttpStatus.OK);
+        } else return new ResponseEntity<>(false, HttpStatus.OK); // 없으면 false
+
+//        if(userService.checkNickname(nickname)){
+//            return new ResponseEntity<Boolean>(true, HttpStatus.OK);
+//        }else return new ResponseEntity<>(false, HttpStatus.OK);
+
+    }
 }

@@ -34,13 +34,18 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
-    public void withdrawUser(String email) {
-        sqlSession.getMapper(UserMapper.class).withdrawUser(email);
+    public void withdrawUser(int id) {
+        sqlSession.getMapper(UserMapper.class).withdrawUser(id);
     }
 
     @Override
-    public List<User> listFollower(String email) {
-        return sqlSession.getMapper(UserMapper.class).listFollower(email);
+    public List<User> listFollower(int id) {
+        return sqlSession.getMapper(UserMapper.class).listFollower(id);
+    }
+
+    @Override
+    public List<User> listFollow(int id) {
+        return sqlSession.getMapper(UserMapper.class).listFollow(id);
     }
 
     @Override
@@ -56,5 +61,30 @@ public class UserServiceImpl implements UserService{
     @Override
     public User searchById(int id) {
         return sqlSession.getMapper(UserMapper.class).userInfo(id);
+    }
+
+    @Override
+    public void updateProfile(User user) {
+        sqlSession.getMapper(UserMapper.class).updateProfile(user);
+    }
+
+    @Override
+    public Boolean checkNickname(String nickname) {
+        return sqlSession.getMapper(UserMapper.class).checkNickname(nickname)==1;
+    }
+
+    @Override
+    public Boolean addFollow(int id, int toUser) {
+        return sqlSession.getMapper(UserMapper.class).addFollow(id, toUser) == 1;
+    }
+
+    @Override
+    public Boolean checkFollow(int id, int loginedId) {
+        return sqlSession.getMapper(UserMapper.class).checkFollow(id, loginedId) == 1;
+    }
+
+    @Override
+    public Boolean unFollow(int toUser, int fromUser) {
+        return sqlSession.getMapper(UserMapper.class).unFollow(toUser, fromUser) == 1;
     }
 }

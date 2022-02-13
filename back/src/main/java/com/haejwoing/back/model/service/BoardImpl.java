@@ -2,14 +2,17 @@ package com.haejwoing.back.model.service;
 
 import com.haejwoing.back.model.dto.Board;
 import com.haejwoing.back.model.mapper.BoardMapper;
+import io.swagger.models.auth.In;
+import lombok.Getter;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
+import java.util.*;
 
 @Service
 public class BoardImpl implements BoardService{
+
 
     @Autowired
     private SqlSession sqlSession;
@@ -26,12 +29,17 @@ public class BoardImpl implements BoardService{
     }
 
     @Override
+    public List<Board> getUser(int userId) {
+
+        return sqlSession.getMapper(BoardMapper.class).getUser(userId);
+    }
+
+    @Override
     public boolean save(Board board) throws Exception{
 
         if(board.getContent() == null){
             throw new Exception();
         }
-
 
         return sqlSession.getMapper(BoardMapper.class).save(board);
     }
@@ -48,4 +56,6 @@ public class BoardImpl implements BoardService{
         sqlSession.getMapper(BoardMapper.class).delete(idboard);
         return sqlSession.getMapper(BoardMapper.class).delete(idboard);
     }
+
+
 }

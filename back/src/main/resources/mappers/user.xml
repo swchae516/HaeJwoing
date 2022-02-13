@@ -21,16 +21,23 @@
         from user
     </select>
 
-    <update id="withdrawUser" parameterType="String">
+    <update id="withdrawUser" parameterType="int">
         update user
         set user_status = 0
-        where email like #{email}
+        where id=#{id}
+
     </update>
 
-    <select id="listFollower" parameterType="String" resultType="map">
-        select from_user
-        from follower
-        where follower.to_user like #{email}
+    <select id="listFollower" parameterType="int" resultType="map">
+        select id, nickname, image from user where id in (
+            select from_user
+            from follower where to_user=#{id});
+    </select>
+
+    <select id="listFollow" parameterType="int" resultType="map">
+        select id, nickname, image from user where id in (
+            select to_user
+            from follower where from_user=#{id});
     </select>
 
     <select id="getUserId" parameterType="String" resultType="int">
@@ -42,4 +49,26 @@
     <select id="userInfo" parameterType="int" resultType="User">
         select * from user where id = #{id};
     </select>
+
+    <update id="updateProfile" parameterType="User">
+        update user
+        set nickname=#{nickname}, image=#{image}
+        where id=#{id}
+    </update>
+
+    <select id="checkNickname" parameterType="String" resultType="int">
+        select EXISTS(select id from user where nickname like #{nickname})
+    </select>
+
+    <insert id="addFollow" parameterType="int">
+        insert into follower(from_user, to_user) VALUES (#{id}, #{toUser})
+    </insert>
+
+    <select id="checkFollow" parameterType="int" resultType="int">
+        select EXISTS(select * from follower where from_user=#{loginedId} and to_user=#{id})
+    </select>
+
+    <delete id="unFollow" parameterType="int">
+        delete from follower where to_user=#{toUser} and from_user=#{fromUser}
+    </delete>
 </mapper>

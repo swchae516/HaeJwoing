@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.haejwoing.back.model.mapper.VoteUsersMapper">
+
+    <insert id="save_vote_users" parameterType="VoteUsersImport">
+
+        INSERT INTO VOTE_USERS(user_id, idx, board_idboard) VALUES (#{user_id}, #{idx}, #{board_idboard})
+
+    </insert>
+
+    <select id="get_vote_users" parameterType="VoteUsersExport" resultType="VoteUsersExport">
+
+    SELECT user_id, idx FROM VOTE_USERS WHERE board_idboard = #{board_idboard}
+
+    </select>
+
+
+</mapper>

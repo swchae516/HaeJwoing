@@ -3,6 +3,18 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.haejwoing.back.model.mapper.HashTagMapper">
 
+    <select id = 'get_raw_data' parameterType="int" resultType="Board">
+        SELECT * FROM BOARD WHERE idboard=#{idboard}
+
+    </select>
+
+
+    <select id = 'getHashList' parameterType="HashMap" resultType="String">
+        SELECT idBoard FROM TAG WHERE tag_name=#{tag_name}
+
+    </select>
+
+
     <select id="recent_id" parameterType="Board" resultType="String">
 
         SELECT idboard FROM BOARD ORDER BY idboard DESC LIMIT 1
@@ -10,9 +22,22 @@
     </select>
 
 
+    <select id="get_due_date_from_tag" parameterType="String" resultType="String">
+
+        SELECT due_date FROM tag where tag_name = #{tag_name}
+
+    </select>
+
+    <select id="get_board_from_tag" parameterType="String" resultType="String">
+
+        SELECT idBoard FROM tag where tag_name = #{tag_name}
+
+    </select>
+
+
     <insert id="savearray" parameterType="HashMap">
 
-    INSERT INTO TAG(tag_name, idBoard) VALUES (#{tag_name}, #{idBoard})
+    INSERT INTO TAG(tag_name, idBoard, due_date) VALUES (#{tag_name}, #{idBoard}, #{due_date})
 
     </insert>
 
@@ -24,17 +49,38 @@
     </select>
 
 
-    <select id="getout" parameterType="String" resultType="String">
+    <select id="getout_board" parameterType="String" resultType="String">
 
         SELECT idBoard FROM TAG WHERE tag_name=#{tag_name} LIMIT 1;
 
     </select>
 
+
+    <select id="getout_due_date" parameterType="String" resultType="String">
+
+        SELECT due_date FROM TAG WHERE tag_name=#{tag_name} LIMIT 1;
+
+    </select>
+
+
     <update id="updateit" parameterType="HashMap">
 
-        UPDATE TAG SET idBoard = #{idBoard} WHERE tag_name=#{tag_name}
+        UPDATE TAG SET idBoard = #{idBoard}, due_date=#{due_date} WHERE tag_name=#{tag_name}
 
     </update>
+
+    <update id="update_new" parameterType="HashMap">
+
+        UPDATE TAG SET idBoard = #{idBoard}, due_date=#{due_date} WHERE tag_name=#{tag_name}
+
+    </update>
+
+    <delete id="delete_hash" parameterType="String">
+
+        DELETE FROM TAG
+        WHERE tag_name = #{tag_name}
+
+    </delete>
 
 
 </mapper>
