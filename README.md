@@ -4,9 +4,7 @@
 
 ### 프로젝트 주제
 
-![해줘잉_두잇](/uploads/f93743def053541ce70656adb4d744d6/해줘잉_두잇.jpg)
-
-- [해줘잉](http://i6c103.p.ssafy.io)
+![image](https://user-images.githubusercontent.com/45279249/173012084-6526581a-fd41-472e-b206-bed98b7e62df.png)
 
 ### 팀원 및 역할
 
@@ -34,93 +32,56 @@
 
 - 이은성
 
-# Process
-
-![image](/uploads/1bca25d088e1606376695e2084a14fad/image.png)
-
-# 기획
-
 ## 프로젝트 기획
 
 <ul>
+  <li>기획 배경</li>
+  <p align="center">
+    <img width="600px", src="https://user-images.githubusercontent.com/45279249/173015663-f578b6b4-0888-45db-b32c-0bbd40fa14d2.png" />
+  </P>
   <li>E-R Diagram</li>
   <p align="center">
-    <img width="600px", src="https://github.com/swchae516/SSAFY_6th_Sub_PJT/blob/main/ERD.png?raw=true" />
-  </p>
+    <img width="600px", src="https://user-images.githubusercontent.com/45279249/173012512-54c9f1dc-68c7-477b-a1a1-660713eb586f.png" />
+  </P>
   <li>Wireframe</li>
   <p align="center">
-    <img width="600px", src="https://github.com/swchae516/SSAFY_6th_Sub_PJT/blob/main/wireframe.png?raw=true" />
-  </p>
-  <li>Swagger API Document</li>
-  <p align="center">
-    <img width="600px", src="https://github.com/swchae516/SSAFY_6th_Sub_PJT/blob/main/1.PNG?raw=true" />
-    <img width="600px", src="https://github.com/swchae516/SSAFY_6th_Sub_PJT/blob/main/2.PNG?raw=true" />
-    <img width="600px", src="https://github.com/swchae516/SSAFY_6th_Sub_PJT/blob/main/3.PNG?raw=true" />
-    <img width="600px", src="https://github.com/swchae516/SSAFY_6th_Sub_PJT/blob/main/5.PNG?raw=true" />
-    <img width="600px", src="https://github.com/swchae516/SSAFY_6th_Sub_PJT/blob/main/6.PNG?raw=true" />
+    <img width="600px", src="https://user-images.githubusercontent.com/45279249/173013521-e42dfdf9-bf40-4503-9541-2b220a8e982a.png" />
   </p>
 </ul>
 
-## 빌드 및 배포
-
+## 시연 시나리오
 <ul>
-  <li>
-    <b>사용한 JVM, 웹서버, WAS 제품  등의 종류와 설정값, 버전(IDE 버전 포함)</b>
-    <ul>
-      <li>JVM : Java 11</li>
-      <li>통합개발환경(IDE) : 인텔리제이 3.1 (Back-end), VSCode 1.63.2 (Front-end)</li>
-      <li>웹서버 : 로컬(http://localhost:8080, http://i6c103.p.ssafy.io)</li>
-      <li>WAS : SpringBoot 내장 톰캣</li>
-    </ul>
-  </li>
-  <li>
-    <b>배포 아키텍쳐</b>
-    <p align="center">
-      <img width="800px", src="https://github.com/swchae516/SSAFY_6th_Sub_PJT/blob/main/%EC%8B%9C%EC%8A%A4%ED%85%9C%20%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98.png?raw=true" />
-    </p>
-  </li>
-  <li>
-    <b>포트 번호</b>
-    <p>[Front-end] : 3000</p>
-    <p>[Back-end] : 8080</p>
-    <p>[Database] : 3306</p>
-​    <b>Version</b>
-    <ul>
-      <li>[Front-end] : eact 17.0.2 , react-bootstrap 2.1.1, style-component 5.3.3 , web-vitals 2.1.3</li>
-      <li>[Back-end] : 웹서버 : SpringBoot 2.5.9, Java : 11.0.13, jwt auth, Spring Security</li>
-      <li>[Database] : mybatis 2.2.1 mysql 8.0.28</li>
-      <li>[OS, Server] : Ubuntu 20.04, Nginx 1.18.0, AWS S3
-    </ul>
-  </li>
-  <li>
-    <p>Nginx</p>
-    <p>nginx 설정(/etc/nginx/siteds-enabled/default</p>
-    <p align="center">
-      <img width="600px", src="https://github.com/swchae516/SSAFY_6th_Sub_PJT/blob/main/Nginx.PNG?raw=true" />
-    </p>
-  </li>
-  <li>
-    <b>서버 세팅</b>
-    <p align="center">
-      <img width="600px", src="https://github.com/swchae516/SSAFY_6th_Sub_PJT/blob/main/%EC%84%9C%EB%B2%84%EC%84%B8%ED%8C%85.PNG?raw=true" />
-    </p>
-  </li>
-  <li>
-    <b>Front-end</b>
+  <li>서비스 접속 시 로그인 화면</li>
+  <p align="center">
+    <img width="300px", src="https://user-images.githubusercontent.com/45279249/173014046-eea6ffdf-15a3-4122-b299-5d840a07097c.png" />
+  </P>
+  <li>최초 로그인 시 추가 정보 입력</li>
+  <p align="center">
+    <img width="300px", src="https://user-images.githubusercontent.com/45279249/173014178-f2f7a4e6-a0e6-4d12-9a62-b81e111a74bc.png" />
+  </P>
+  <li>로그인 완료 시 메인 피드 화면으로 넘어감</li>
+  <p align="center">
+    <img width="300px", src="https://user-images.githubusercontent.com/45279249/173014344-57822d12-fb48-4799-9bc2-6dfd92e26a14.png" />
+  </P>
+  <li>피드 작성하는 페이지</li>
+  <p align="center">
+    <img width="300px", src="https://user-images.githubusercontent.com/45279249/173014487-87a3baf9-b5aa-495d-b6c2-ca397367256d.png" />
+  </P>
+  <li>프로필 화면</li>
+  <p align="center">
+    <img width="300px", src="https://user-images.githubusercontent.com/45279249/173014610-c42950d8-6b22-415c-ae64-e71c9766c6f6.png" />
+  </P>
+  <li>태그, 친구 검색</li>
+  <p align="center">
+    <img width="400px", src="https://user-images.githubusercontent.com/45279249/173014754-88342fab-a8d6-463f-b854-f78243c7812f.png" />
+  </P>
+  <li>프로필 화면에서 각각의 목록 화면</li>
+  <p align="center">
+    <img width="400px", src="https://user-images.githubusercontent.com/45279249/173015113-a7df3206-b775-452e-85c9-5df1f65589e1.png" />
+  </P>
+</ul>
 
-    <p align="center">
-      <img width="600px", src="https://github.com/swchae516/SSAFY_6th_Sub_PJT/blob/main/%ED%94%84%EB%A1%A0%ED%8A%B8.PNG?raw=true" />
-    </p>
-
-​    <b>Back-end</b>
-
-    <p align="center">
-      <img width="600px", src="https://github.com/swchae516/SSAFY_6th_Sub_PJT/blob/main/%EB%B0%B1.PNG?raw=true" />
-    </p>
-
-# Front-End
-
-### React 기반 개발
+## React 기반 개발
 
 - CSS module 과 Styled Component를 사용하여 각자 스타일대로 CSS 컴포넌트 구성
   
